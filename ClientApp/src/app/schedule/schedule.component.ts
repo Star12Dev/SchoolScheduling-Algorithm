@@ -59,6 +59,38 @@ export class ScheduleComponent implements OnInit {
     setTimeout(function () {
       document.getElementById("importFile").click();
     })
+  }exportData() {
+    var options = {
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      useBom: true,
+      noDownload: false,
+      headers: this.displayedColumns
+    };
+    new Angular5Csv(this.elementData, 'Schedule Data', options);
+  }
+  importData() {
+    setTimeout(function () {
+      document.getElementById("importFile").click();
+    })
+  }exportData() {
+    var options = {
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      useBom: true,
+      noDownload: false,
+      headers: this.displayedColumns
+    };
+    new Angular5Csv(this.elementData, 'Schedule Data', options);
+  }
+  importData() {
+    setTimeout(function () {
+      document.getElementById("importFile").click();
+    })
   }
   handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
