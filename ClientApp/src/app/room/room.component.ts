@@ -78,34 +78,6 @@ export class RoomComponent implements OnInit {
 
     this.page = 0;
     this.objectKey = Object.keys;
-  } openLink(link: string) {
-    window.open(link, '_blank');
-  }
-  init() {
-    this.selectTeacher = -1;
-    this.selectSemester = -1;
-    this.selectRoom = -1;
-
-    this.chk=true;
-    this.sp_color=true;
-    this.sh_cou=false;
-
-    this.page = 0;
-    this.objectKey = Object.keys;
-  } openLink(link: string) {
-    window.open(link, '_blank');
-  }
-  init() {
-    this.selectTeacher = -1;
-    this.selectSemester = -1;
-    this.selectRoom = -1;
-
-    this.chk=true;
-    this.sp_color=true;
-    this.sh_cou=false;
-
-    this.page = 0;
-    this.objectKey = Object.keys;
   }
   initFromGlobalData() {
     let scheduleData = AppSettings.getScheduleData();
