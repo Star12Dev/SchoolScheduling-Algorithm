@@ -135,22 +135,3 @@ export interface ScheduleElement {
 }
 
 
-
-
-
-
-
-export interface ScheduleElement {
-  school_number: string;
-  school_name: string;
-  student_number: string;
-  semester: number;
-  term: number;
-  cycle_day: number;
-  period: number;
-  course_section: string;
-  course_grade: number;
-  room_number: string;
-  room_name: string;
-  teacher_name: string;
-}
