@@ -429,3 +429,128 @@ function compare(a, b) {
   if (a.lastname_semester > b.lastname_semester) return 1;
   return 0;
 }
+
+
+
+
+
+
+exportData() {
+    let data = [],
+      count;
+    let search = '<br/>';
+    let replacement = '\r\n ';
+    count = this.teacherObj.length;
+    for (let i = 1; i < count; i++) {
+      let obj = {},  key, key1;
+      for (let j = 0; j < this.maxColumn; j++) {
+        key = this.teacherObj[0][j][0];
+        let rr = this.teacherObj[i][j][0].split(search).join(replacement);
+        let sp=rr.split(' ');
+        let len;
+        len=Math.floor((sp.length-1) / 2)-1;
+        if(j==0){
+          obj[key]=rr;
+        }
+        if (j > 0){
+          key1=key+" Section";          
+          if (this.teacherObj[i][j][2] === 0)
+            obj[key1] = "";
+          else
+            obj[key1] = sp[0];
+            for(let l=1;l<=len;l++){
+              obj[key1]=obj[key1]+" "+sp[l*2];
+            }
+            
+
+          key1=key+" Student";          
+          if (this.teacherObj[i][j][2] === 0)
+            obj[key1] = "";
+          else
+            obj[key1] = sp[1];
+            for(let l=1;l<=len;l++){
+              obj[key1]=obj[key1]+" "+sp[l*2+1];
+            }
+
+          key1=key+" Room";          
+          if (this.teacherObj[i][j][2] === 0){
+            obj[key1] = "";
+          }
+          else{
+            obj[key1] = sp[len*2+2];
+            if (sp.length % 2==0)
+              obj[key1]=sp[len*2+2]+" "+sp[len*2+3];
+          }
+
+        }
+      }
+      data.push(obj);
+    }
+    if (data.length > 0)
+      ExcelService.exportAsExcelFile(
+        data,
+        'Teacher - Semester/Period Analysis',
+        false
+      );
+  }
+
+
+
+  exportData() {
+    let data = [],
+      count;
+    let search = '<br/>';
+    let replacement = '\r\n ';
+    count = this.teacherObj.length;
+    for (let i = 1; i < count; i++) {
+      let obj = {},  key, key1;
+      for (let j = 0; j < this.maxColumn; j++) {
+        key = this.teacherObj[0][j][0];
+        let rr = this.teacherObj[i][j][0].split(search).join(replacement);
+        let sp=rr.split(' ');
+        let len;
+        len=Math.floor((sp.length-1) / 2)-1;
+        if(j==0){
+          obj[key]=rr;
+        }
+        if (j > 0){
+          key1=key+" Section";          
+          if (this.teacherObj[i][j][2] === 0)
+            obj[key1] = "";
+          else
+            obj[key1] = sp[0];
+            for(let l=1;l<=len;l++){
+              obj[key1]=obj[key1]+" "+sp[l*2];
+            }
+            
+
+          key1=key+" Student";          
+          if (this.teacherObj[i][j][2] === 0)
+            obj[key1] = "";
+          else
+            obj[key1] = sp[1];
+            for(let l=1;l<=len;l++){
+              obj[key1]=obj[key1]+" "+sp[l*2+1];
+            }
+
+          key1=key+" Room";          
+          if (this.teacherObj[i][j][2] === 0){
+            obj[key1] = "";
+          }
+          else{
+            obj[key1] = sp[len*2+2];
+            if (sp.length % 2==0)
+              obj[key1]=sp[len*2+2]+" "+sp[len*2+3];
+          }
+
+        }
+      }
+      data.push(obj);
+    }
+    if (data.length > 0)
+      ExcelService.exportAsExcelFile(
+        data,
+        'Teacher - Semester/Period Analysis',
+        false
+      );
+  }
