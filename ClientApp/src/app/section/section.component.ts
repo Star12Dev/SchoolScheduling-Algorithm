@@ -236,3 +236,41 @@ export class SectionComponent implements OnInit {
     this.gridCSS = 'repeat(auto-fit, minmax(' + min + '%,' + max + '%))';
   }
 }
+
+    this.sectionObj[0] = [];
+
+    for (let i = 0; i < this.semesterArray.length; i++) {
+      for (let j = 0; j < this.periodArray.length; j++) {
+        let key = 'S' + (i + 1).toString() + 'P' + (j + 1).toString();
+        this.head.push(key);
+        this.head1.push('1234567890');
+        this.sectionObj[0].push(key);
+        hashPeriodSemester[key] = i * this.periodArray.length + j;
+      }
+    }
+
+    this.totalAnalysis = this.head.length;
+
+    for (let i = 0; i < this.semesterArray.length; i++) {
+      semesterHash[this.semesterArray[i]] = i;
+    }
+
+    for (let i = 0; i < this.periodArray.length; i++) {
+      periodHash[this.periodArray[i]] = i;
+    }
+
+    this.maxColumn = this.semesterArray.length * this.periodArray.length + 1;
+
+    for (let each in tempData) {
+      let split = each.split('|||');
+      let obj = tempData[each];
+      let indS = semesterHash[split[3]] + 1;
+      let indP = periodHash[split[4]] + 1;
+      let indSPKey = 'S' + indS.toString() + 'P' + indP.toString();
+      let indSP = hashPeriodSemester[indSPKey];
+    }
+
+    let min = Math.floor(100 / this.maxColumn);
+    let max = Math.ceil(100 / this.maxColumn);
+    this.gridCSS = 'repeat(auto-fit, minmax(' + min + '%,' + max + '%))';
+  }
