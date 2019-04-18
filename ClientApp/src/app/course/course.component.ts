@@ -12,16 +12,3 @@ import { AppSettings } from '../global/global';
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.scss']
 })
-export class CourseComponent implements OnInit {
-  routeAnimationsElements = ROUTE_ANIMATIONS_ELEMENTS;
-  versions = env.versions;
-
-  ngOnInit() {
-  }
-
-  openLink(link: string) {
-    window.open(link, '_blank');
-  }
-
-}
- 
